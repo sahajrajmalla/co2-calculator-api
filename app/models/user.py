@@ -1,10 +1,9 @@
 from __future__ import annotations
 
+from db.database import Base
 from sqlalchemy import Column
 from sqlalchemy import Integer
 from sqlalchemy import String
-
-from db.database import Base
 # from sqlalchemy import ForeignKey
 # from sqlalchemy.orm import relationship
 

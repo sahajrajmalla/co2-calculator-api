@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-from fastapi import HTTPException
-from fastapi import status
-from sqlalchemy.orm import Session
-
-from models.user import User
 from core.auth.hashing import Hash
 from core.schemas.user import UserType
+from fastapi import HTTPException
+from fastapi import status
+from models.user import User
+from sqlalchemy.orm import Session
 
 
 def create_new_user(request: UserType, db: Session):
