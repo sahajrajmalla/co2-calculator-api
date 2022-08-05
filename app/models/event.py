@@ -3,10 +3,10 @@ from __future__ import annotations
 from db.database import Base
 from sqlalchemy import Column
 from sqlalchemy import Float
-from sqlalchemy import String
-# from sqlalchemy import ForeignKey
 from sqlalchemy import Integer
+from sqlalchemy import String
 from sqlalchemy.orm import relationship
+# from sqlalchemy import ForeignKey
 
 
 class Event(Base):
@@ -16,4 +16,4 @@ class Event(Base):
     name = Column(String)
     lon = Column(Float)
     lat = Column(Float)
-    participants = relationship("Participant")
+    participants = relationship('Participant')

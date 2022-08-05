@@ -1,15 +1,19 @@
-from typing import Any, List
+from __future__ import annotations
 
-from fastapi import APIRouter, Depends
-from sqlalchemy.orm import Session
+from typing import Any
+from typing import List
 
-import crud, schemas
+import crud
+import schemas
 from db.database import get_db
+from fastapi import APIRouter
+from fastapi import Depends
+from sqlalchemy.orm import Session
 
 router = APIRouter()
 
 
-@router.get("/{id}", response_model=schemas.Participant)
+@router.get('/{id}', response_model=schemas.Participant)
 def read_participant(
     *,
     db: Session = Depends(get_db),
@@ -20,7 +24,7 @@ def read_participant(
     return result
 
 
-@router.get("/", response_model=List[schemas.Participant])
+@router.get('/', response_model=List[schemas.Participant])
 def read_participants(
     db: Session = Depends(get_db),
     skip: int = 0,
@@ -31,7 +35,7 @@ def read_participants(
     return result
 
 
-@router.post("/", response_model=schemas.Participant)
+@router.post('/', response_model=schemas.Participant)
 def create_participant(
     *,
     db: Session = Depends(get_db),
@@ -42,7 +46,7 @@ def create_participant(
     return result
 
 
-@router.put("/{id}", response_model=schemas.Participant)
+@router.put('/{id}', response_model=schemas.Participant)
 def update_participant(
     *,
     db: Session = Depends(get_db),
@@ -54,7 +58,7 @@ def update_participant(
     return result
 
 
-@router.delete("/{id}", response_model=schemas.Participant)
+@router.delete('/{id}', response_model=schemas.Participant)
 def delete_participant(
     *,
     db: Session = Depends(get_db),

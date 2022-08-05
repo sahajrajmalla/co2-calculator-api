@@ -1,14 +1,11 @@
-from typing import Optional, Union, Any, List
+from __future__ import annotations
+
+from typing import List
+from typing import Optional
 
 from pydantic import BaseModel
-from pydantic.utils import GetterDict
-
-
-# Shared properties
-from starlette.websockets import WebSocket
-
-from schemas.common import GeoCoordinates, JoinMode
-from schemas.participant import Participant, ParticipantInDB
+from schemas.participant import Participant
+from schemas.participant import ParticipantInDB
 
 
 UID = str

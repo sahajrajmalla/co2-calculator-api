@@ -1,15 +1,19 @@
-from typing import Any, List
+from __future__ import annotations
 
-from fastapi import APIRouter, Depends
-from sqlalchemy.orm import Session
+from typing import Any
+from typing import List
 
-import crud, schemas
+import crud
+import schemas
 from db.database import get_db
+from fastapi import APIRouter
+from fastapi import Depends
+from sqlalchemy.orm import Session
 
 router = APIRouter()
 
 
-@router.get("/{id}", response_model=schemas.Event)
+@router.get('/{id}', response_model=schemas.Event)
 def read_event(
     *,
     db: Session = Depends(get_db),
@@ -20,7 +24,7 @@ def read_event(
     return result
 
 
-@router.get("/", response_model=List[schemas.Event])
+@router.get('/', response_model=List[schemas.Event])
 def read_events(
     db: Session = Depends(get_db),
     skip: int = 0,
@@ -31,7 +35,7 @@ def read_events(
     return result
 
 
-@router.post("/", response_model=schemas.Event)
+@router.post('/', response_model=schemas.Event)
 def create_event(
     *,
     db: Session = Depends(get_db),
@@ -42,7 +46,7 @@ def create_event(
     return result
 
 
-@router.put("/{id}", response_model=schemas.Event)
+@router.put('/{id}', response_model=schemas.Event)
 def update_event(
     *,
     db: Session = Depends(get_db),
@@ -54,7 +58,7 @@ def update_event(
     return result
 
 
-@router.delete("/{id}", response_model=schemas.Event)
+@router.delete('/{id}', response_model=schemas.Event)
 def delete_event(
     *,
     db: Session = Depends(get_db),
