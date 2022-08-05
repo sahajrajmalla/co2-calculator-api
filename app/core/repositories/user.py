@@ -4,9 +4,9 @@ from fastapi import HTTPException
 from fastapi import status
 from sqlalchemy.orm import Session
 
-from db.models.user import User
-from src.api.auth.hashing import Hash
-from src.schemas.user import UserType
+from models.user import User
+from core.auth.hashing import Hash
+from core.schemas.user import UserType
 
 
 def create_new_user(request: UserType, db: Session):

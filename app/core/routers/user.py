@@ -5,10 +5,10 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 
 from db.database import get_db
-from src.api.users.user import create_new_user
-from src.api.users.user import get_user_by_id
-from src.schemas.user import ShowUser
-from src.schemas.user import UserType
+from core.repositories.user import create_new_user
+from core.repositories.user import get_user_by_id
+from core.schemas.user import ShowUser
+from core.schemas.user import UserType
 # from fastapi import status
 
 router = APIRouter(prefix='/user', tags=['Users'])

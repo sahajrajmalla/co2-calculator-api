@@ -3,8 +3,8 @@ from __future__ import annotations
 from fastapi import APIRouter
 from fastapi import Depends
 
-from db.models.user import User
-from src.api.auth.jwt_token import get_current_user
+from models.user import User
+from core.auth.jwt_token import get_current_user
 
 router = APIRouter(prefix='', tags=['Root'])
 

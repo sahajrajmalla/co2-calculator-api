@@ -3,10 +3,10 @@ from __future__ import annotations
 from fastapi import FastAPI
 
 from db.database import engine
-from db.models.user import Base
-from src.routers import auth
-from src.routers import root
-from src.routers import user
+from models.user import Base
+from core.routers import auth
+from core.routers import root
+from core.routers import user
 # from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
