@@ -5,13 +5,17 @@ from core.routers import root
 from core.routers import user
 from db.database import engine
 from fastapi import FastAPI
-from models.user import Base
+from models import EventBase
+from models import ParticipantBase
+from models import UserBase
 # from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
 
-Base.metadata.create_all(engine)
+UserBase.metadata.create_all(engine)
+EventBase.metadata.create_all(engine)
+ParticipantBase.metadata.create_all(engine)
 
 app.include_router(root.router)
 app.include_router(user.router)

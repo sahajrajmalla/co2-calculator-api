@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 from core.auth.hashing import Hash
-from core.schemas.user import UserType
 from fastapi import HTTPException
 from fastapi import status
 from models.user import User
+from schemas.user import UserType
 from sqlalchemy.orm import Session
 
 
