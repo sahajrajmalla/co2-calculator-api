@@ -8,6 +8,7 @@ from fastapi import FastAPI
 from models import EventBase
 from models import ParticipantBase
 from models import UserBase
+from api.v1.api import api_router
 # from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -20,3 +21,4 @@ ParticipantBase.metadata.create_all(engine)
 app.include_router(root.router)
 app.include_router(user.router)
 app.include_router(auth.router)
+app.include_router(api_router)
