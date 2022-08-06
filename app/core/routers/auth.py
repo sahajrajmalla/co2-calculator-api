@@ -33,4 +33,4 @@ def login(request: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(
     # Generate a JWT token and return
     access_token = create_access_token(data={'sub': user.email})
 
-    return {'access_token': access_token, 'token_type': 'bearer'}
+    return {'access_token': access_token, 'token_type': 'bearer', 'email': user.email, 'name': user.name, 'id': user.id}
