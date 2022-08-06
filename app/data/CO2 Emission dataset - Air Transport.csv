@@ -1,0 +1,10 @@
+source,unit,class,distance,factor
+domestic,kg CO2-e/km,average,Default,0.147
+short_haul_international,kg CO2-e/km,average,< 3700 km,0.0891
+short_haul_international,kg CO2-e/km,economy,< 3700 km,0.0873
+short_haul_international,kg CO2-e/km,business,< 3700 km,0.131
+long_haul_international,kg CO2-e/km,average,> 3700 km,0.0946
+long_haul_international,kg CO2-e/km,economy,> 3700 km,0.0725
+long_haul_international,kg CO2-e/km,premium_economy,> 3700 km,0.116
+long_haul_international,kg CO2-e/km,business,> 3700 km,0.21
+long_haul_international,kg CO2-e/km,first,> 3700 km,0.289

@@ -1,0 +1,15 @@
+category,vehicle,size,factor,unit
+private,car,<1350 cc,0.198,kg CO2-e/km
+private,car,1350 - <1600 cc,0.19,kg CO2-e/km
+private,car,1600 - <2000 cc,0.209,kg CO2-e/km
+private,car,2000 - <3000 cc,0.237,kg CO2-e/km
+private,car,3000 - <4000 cc,0.278,kg CO2-e/km
+private,car,Default,0.209,kg CO2-e/km
+private,electric_car,Default,0.124,kg CO2-e/km
+private,bike,Default,0.14,kg CO2-e/km
+private,walk,Default,0.11,kg CO2-e/km
+private,petrol_hybrids,<2000 cc,0.102,kg CO2-e/km
+private,petrol_hybrids,2000 - <4000cc cc,0.146,kg CO2-e/km
+public,taxi,Default,0.2,kg CO2-e/km
+public,bus,Default,0.822,kg CO2-e/km
+public,train,Default,0.0351,kg CO2-e/km
