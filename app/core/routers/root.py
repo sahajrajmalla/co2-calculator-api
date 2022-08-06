@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import random
 import shutil
 from datetime import datetime
 from typing import List
@@ -102,3 +103,14 @@ def upload_file(file: UploadFile = File(...), db: Session = Depends(get_db)):
         shutil.copyfileobj(file.file, image)
 
     return url
+
+
+@router.get('/search', response_model=List[EventInDB], status_code=status.HTTP_200_OK)
+def search_items(query: str, db: Session = Depends(get_db)):
+    items = db.query(Event).filter(
+        Event.name.contains(query) | Event.address.contains(
+            query,
+        ) | Event.join_mode.contains(query) | Event.description.contains(query),
+    ).all()
+    random.shuffle(items)
+    return items
