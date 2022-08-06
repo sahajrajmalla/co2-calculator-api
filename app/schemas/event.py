@@ -1,29 +1,44 @@
 from __future__ import annotations
 
-from typing import List
+from datetime import datetime
 from typing import Optional
 
 from pydantic import BaseModel
-
-from app.schemas.participant import Participant
-from app.schemas.participant import ParticipantInDB
-
 
 UID = str
 
 
 class EventBase(BaseModel):
     name: Optional[str] = None
-    lon: Optional[float] = None
+    description: Optional[str] = None
     lat: Optional[float] = None
-    participants: List[Participant] = []
+    lon: Optional[float] = None
+    year: Optional[int] = None
+    month: Optional[int] = None
+    day: Optional[int] = None
+    hour: Optional[int] = None
+    minute: Optional[int] = None
+    thumbnail: Optional[str] = None
+    user_id: Optional[int] = None
+    # participants: List[Participant] = []
+    # calculators: List[Calculator] = []
 
 
 # Properties to receive on event creation
 class EventCreate(EventBase):
     name: str
-    lon: float
+    description: str
     lat: float
+    lon: float
+    year: int
+    month: int
+    day: int
+    hour: int
+    minute: int
+    thumbnail: str
+    user_id: int
+    # participants: List[Participant] = []
+    # calculators: List[Calculator] = []
 
 
 # Properties to receive on update
@@ -35,9 +50,20 @@ class EventUpdate(EventBase):
 class EventInDBBase(EventBase):
     id: int
     name: str
-    lon: float
+    description: str
     lat: float
-    participants: List[ParticipantInDB] = []
+    lon: float
+    year: int
+    month: int
+    day: int
+    hour: int
+    minute: int
+    thumbnail: str
+    user_id: int
+    # participants: List[ParticipantInDB] = []
+    # calculators: List[CalculatorInDB] = []
+    created_at: datetime
+    modified_at: datetime
 
     class Config:
         orm_mode = True

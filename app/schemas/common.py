@@ -10,7 +10,8 @@ class JoinMode(str, Enum):
     """Ways in which event participants can join"""
 
     online = 'online'
-    in_person = 'onsite'
+    physical = 'physical'
+    hybrid = 'hybrid'
 
 
 class GeoCoordinates(BaseModel):

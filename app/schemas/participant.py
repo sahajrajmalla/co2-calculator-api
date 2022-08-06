@@ -14,15 +14,18 @@ class ParticipantBase(BaseModel):
     lat: Optional[float] = None
     active: Optional[bool] = None
     event_id: Optional[int] = None
-
+    calculator_id: Optional[int] = None
 
 # Properties to receive on participant creation
+
+
 class ParticipantCreate(ParticipantBase):
     join_mode: JoinMode
     lon: float
     lat: float
     active: bool = True
     event_id: int
+    calculator_id: int
 
 
 # Properties to receive on update
@@ -38,6 +41,7 @@ class ParticipantInDBBase(ParticipantBase):
     lat: float
     active: bool
     event_id: int
+    calculator_id: int
 
     class Config:
         orm_mode = True

@@ -1,13 +1,23 @@
 from __future__ import annotations
 
+from typing import List
+
 from fastapi import APIRouter
 from fastapi import Depends
+from fastapi import status
+from geopy.geocoders import Nominatim
+from sqlalchemy.orm import Session
 
 from app.core.auth.jwt_token import get_current_user
 from app.core.repositories.distance import get_top_cloest_airport
 from app.core.repositories.distance import measure_geodesic_distance
 from app.core.repositories.factor import fetch_factor_data
+from app.db.database import get_db
+from app.models.calculator import Calculator
+from app.models.event import Event
 from app.models.user import User
+from app.schemas import CalculatorInDB
+from app.schemas import EventInDB
 
 router = APIRouter(prefix='', tags=['Root'])
 
@@ -38,3 +48,30 @@ def get_nearest_airport(lat: float, lon: float):
 def get_geodesic_distance(lat1: float, lon1: float, lat2: float, lon2: float):
     response_data = measure_geodesic_distance(lat1, lon1, lat2, lon2)
     return response_data
+
+
+@router.get('/fetch_event', response_model=List[EventInDB], status_code=status.HTTP_200_OK)
+def filter_event_by_user_id(user_id: int, db: Session = Depends(get_db)):
+    item = db.query(Event).filter(Event.user_id == user_id).all()
+    return item
+
+
+@router.get('/fetch_calculator', response_model=List[CalculatorInDB], status_code=status.HTTP_200_OK)
+def filter_calculator_by_event_id(event_id: int, db: Session = Depends(get_db)):
+    item = db.query(Calculator).filter(Calculator.event_id == event_id).all()
+    return item
+
+
+@router.get('/fetch_lat_lng', response_model=dict, status_code=status.HTTP_200_OK)
+def fetch_lat_lng(address: str):
+    try:
+        geolocator = Nominatim(user_agent='geoapiExercises')
+        geocode = geolocator.geocode(address)
+        response = {
+            'address': address,
+            'lat': geocode.latitude, 'lng': geocode.longitude,
+        }
+
+        return response
+    except Exception:
+        return {'error': 'Could not find address'}

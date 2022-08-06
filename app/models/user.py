@@ -8,7 +8,6 @@ from sqlalchemy.sql import func
 
 from app.db.database import Base
 # from sqlalchemy import ForeignKey
-# from sqlalchemy.orm import relationship
 
 
 class User(Base):
@@ -19,5 +18,8 @@ class User(Base):
     email = Column(String)
     password = Column(String)
     # blogs = relationship("Blog", back_populates="creator")
+    event = Column(Integer)
+    # event = relationship("Event")
+
     created_at = Column(DateTime, server_default=func.now())
     modified_at = Column(DateTime, server_default=func.now(), onupdate=func.now())

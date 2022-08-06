@@ -7,7 +7,6 @@ from sqlalchemy import Enum
 from sqlalchemy import Float
 from sqlalchemy import Integer
 from sqlalchemy import String
-from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 
 from app.db.database import Base
@@ -55,8 +54,14 @@ class Calculator(Base):
     factor_electricity = Column(Integer)
     unit_electricity = Column(String)
 
-    event_id = relationship('Event')
-    participant_id = relationship('Participant')
+    event_id = Column(Integer)
+    participants_id = Column(Integer)
+    # participants
+
+    # event_id = Column(Integer, ForeignKey("events.id"))
+
+    # participants_id = Column(Integer, ForeignKey("participants.id"))
+    # participants = relationship("Participant", back_populates="calculator_id")
 
     created_at = Column(DateTime, server_default=func.now())
     modified_at = Column(DateTime, server_default=func.now(), onupdate=func.now())

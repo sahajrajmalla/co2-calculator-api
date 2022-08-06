@@ -2,13 +2,9 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import Enum
-from typing import List
 from typing import Optional
 
 from pydantic import BaseModel
-
-from app.schemas.event import Event
-from app.schemas.participant import Participant
 
 
 class DietSource(str, Enum):
@@ -96,8 +92,8 @@ class CalculatorBase(BaseModel):
     factor_electricity: Optional[int] = None
     unit_electricity: Optional[str] = None
 
-    event_id: List[Event] = []
-    participant_id: List[Participant] = []
+    event_id: Optional[int] = None
+    participants_id: Optional[int] = None
 
 
 class CalculatorCreate(CalculatorBase):
@@ -132,8 +128,8 @@ class CalculatorCreate(CalculatorBase):
     factor_electricity: int
     unit_electricity: str
 
-    event_id: List[Event] = []
-    participant_id: List[Participant] = []
+    event_id: int
+    participants_id: int
 
 
 class CalculatorUpdate(CalculatorBase):
@@ -174,8 +170,8 @@ class CalculatorInDBBase(CalculatorBase):
     factor_electricity: int
     unit_electricity: str
 
-    event_id: List[Event] = []
-    participant_id: List[Participant] = []
+    event_id: int
+    participants_id: int
 
     created_at: datetime
     modified_at: datetime
