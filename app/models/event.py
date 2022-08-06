@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from sqlalchemy import Column
 from sqlalchemy import DateTime
+from sqlalchemy import Enum
 from sqlalchemy import Float
 from sqlalchemy import Integer
 from sqlalchemy import String
@@ -9,10 +10,10 @@ from sqlalchemy.sql import func
 from sqlalchemy_utils import URLType
 
 from app.db.database import Base
+from app.schemas.common import JoinMode
 # from sqlalchemy import ForeignKey
 
-from app.schemas.common import JoinMode
-from sqlalchemy import Enum
+
 class Event(Base):
     __tablename__ = 'events'
 
