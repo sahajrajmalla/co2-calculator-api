@@ -83,3 +83,22 @@ def fetch_lat_lng(address: str):
         return response
     except Exception:
         return {'error': 'Could not find address'}
+
+from fastapi import status
+from app.models.event import Event
+from fastapi import File, UploadFile
+import shutil
+from datetime import datetime
+
+
+@router.post('/upload_file', response_model=str,
+        status_code=status.HTTP_201_CREATED)
+def upload_file(file: UploadFile = File(...), db: Session = Depends(get_db)):
+
+    now = datetime.now()
+    url = str(f'media/{now}_{file.filename}')
+
+    with open(url, "wb+") as image:
+        shutil.copyfileobj(file.file, image)
+    
+    return url

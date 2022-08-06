@@ -6,17 +6,21 @@ from sqlalchemy import Float
 from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy.sql import func
+from sqlalchemy_utils import URLType
 
 from app.db.database import Base
 # from sqlalchemy import ForeignKey
 
-
+from app.schemas.common import JoinMode
+from sqlalchemy import Enum
 class Event(Base):
     __tablename__ = 'events'
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     description = Column(String)
+    address = Column(String)
+    join_mode = Column(Enum(JoinMode))
     lat = Column(Float)
     lon = Column(Float)
 
@@ -26,7 +30,7 @@ class Event(Base):
     hour = Column(Integer)
     minute = Column(Integer)
 
-    thumbnail = Column(String)
+    thumbnail = Column(URLType)
 
     user_id = Column(Integer)
     # participants = Column(Integer)

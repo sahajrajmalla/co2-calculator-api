@@ -5,12 +5,16 @@ from typing import Optional
 
 from pydantic import BaseModel
 
+from app.schemas.common import JoinMode
+
 UID = str
 
 
 class EventBase(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
+    address: Optional[str] = None
+    join_mode: Optional[JoinMode] = None
     lat: Optional[float] = None
     lon: Optional[float] = None
     year: Optional[int] = None
@@ -28,6 +32,8 @@ class EventBase(BaseModel):
 class EventCreate(EventBase):
     name: str
     description: str
+    address: str
+    join_mode: JoinMode
     lat: float
     lon: float
     year: int
@@ -40,6 +46,9 @@ class EventCreate(EventBase):
     # participants: List[Participant] = []
     # calculators: List[Calculator] = []
 
+    class Config:
+        orm_mode = True
+
 
 # Properties to receive on update
 class EventUpdate(EventBase):
@@ -51,6 +60,8 @@ class EventInDBBase(EventBase):
     id: int
     name: str
     description: str
+    address: str
+    join_mode: JoinMode
     lat: float
     lon: float
     year: int
