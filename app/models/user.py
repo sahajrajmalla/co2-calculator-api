@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from db.database import Base
+from app.db.database import Base
 from sqlalchemy import Column
 from sqlalchemy import DateTime
 from sqlalchemy import Integer

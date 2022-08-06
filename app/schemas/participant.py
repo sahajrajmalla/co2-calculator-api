@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Optional
 
 from pydantic import BaseModel
-from schemas.common import JoinMode
+from app.schemas.common import JoinMode
 
 
 # Shared properties

@@ -1,5 +1,5 @@
 from __future__ import annotations
 
-from crud.calculators import calculator
-from crud.events import event
-from crud.participants import participant
+from app.crud.calculators import calculator
+from app.crud.events import event
+from app.crud.participants import participant

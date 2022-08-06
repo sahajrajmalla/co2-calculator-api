@@ -4,8 +4,8 @@ from typing import List
 from typing import Optional
 
 from pydantic import BaseModel
-from schemas.participant import Participant
-from schemas.participant import ParticipantInDB
+from app.schemas.participant import Participant
+from app.schemas.participant import ParticipantInDB
 
 
 UID = str

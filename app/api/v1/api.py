@@ -1,9 +1,9 @@
 """Register API routers and modules"""
 from __future__ import annotations
 
-from api.v1.endpoints import calculators
-from api.v1.endpoints import events
-from api.v1.endpoints import participants
+from app.api.v1.endpoints import calculators
+from app.api.v1.endpoints import events
+from app.api.v1.endpoints import participants
 from fastapi import APIRouter
 
 

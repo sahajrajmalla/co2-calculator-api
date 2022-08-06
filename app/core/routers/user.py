@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from core.repositories.user import create_new_user
-from core.repositories.user import get_user_by_id
-from db.database import get_db
+from app.core.repositories.user import create_new_user
+from app.core.repositories.user import get_user_by_id
+from app.db.database import get_db
 from fastapi import APIRouter
 from fastapi import Depends
-from schemas.user import ShowUser
-from schemas.user import UserType
+from app.schemas.user import ShowUser
+from app.schemas.user import UserType
 from sqlalchemy.orm import Session
 # from fastapi import status
 

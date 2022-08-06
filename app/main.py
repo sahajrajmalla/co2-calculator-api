@@ -1,15 +1,15 @@
 from __future__ import annotations
 
-from api.v1.api import api_router
-from core.routers import auth
-from core.routers import root
-from core.routers import user
-from db.database import engine
+from app.api.v1.api import api_router
+from app.core.routers import auth
+from app.core.routers import root
+from app.core.routers import user
+from app.db.database import engine
 from fastapi import FastAPI
-from models import CalculatorBase
-from models import EventBase
-from models import ParticipantBase
-from models import UserBase
+from app.models import CalculatorBase
+from app.models import EventBase
+from app.models import ParticipantBase
+from app.models import UserBase
 # from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()

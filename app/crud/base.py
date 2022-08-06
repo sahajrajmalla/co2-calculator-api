@@ -9,7 +9,7 @@ from typing import Type
 from typing import TypeVar
 from typing import Union
 
-from db.database import Base
+from app.db.database import Base
 from fastapi import HTTPException
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel

@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from crud.base import CRUDBase
-from models.participant import Participant
-from schemas.participant import ParticipantCreate
-from schemas.participant import ParticipantUpdate
+from app.crud.base import CRUDBase
+from app.models.participant import Participant
+from app.schemas.participant import ParticipantCreate
+from app.schemas.participant import ParticipantUpdate
 
 
 class CRUDParticipant(CRUDBase[Participant, ParticipantCreate, ParticipantUpdate]):

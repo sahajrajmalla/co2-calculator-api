@@ -3,9 +3,9 @@ from __future__ import annotations
 from typing import Any
 from typing import List
 
-import crud
-import schemas
-from db.database import get_db
+from app import crud
+from app import schemas
+from app.db.database import get_db
 from fastapi import APIRouter
 from fastapi import Depends
 from sqlalchemy.orm import Session

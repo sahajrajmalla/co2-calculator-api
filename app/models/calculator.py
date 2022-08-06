@@ -1,13 +1,13 @@
 # from typing import TYPE_CHECKING
 from __future__ import annotations
 
-from db.database import Base
-from schemas.calculator import AirTransportClass
-from schemas.calculator import AirTransportSource
-from schemas.calculator import DietSource
-from schemas.calculator import ElectricitySource
-from schemas.calculator import LandTransportCategory
-from schemas.calculator import LandTransportVechicle
+from app.db.database import Base
+from app.schemas.calculator import AirTransportClass
+from app.schemas.calculator import AirTransportSource
+from app.schemas.calculator import DietSource
+from app.schemas.calculator import ElectricitySource
+from app.schemas.calculator import LandTransportCategory
+from app.schemas.calculator import LandTransportVechicle
 from sqlalchemy import Column
 from sqlalchemy import DateTime
 from sqlalchemy import Enum

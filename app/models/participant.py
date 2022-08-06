@@ -1,8 +1,8 @@
 # from typing import TYPE_CHECKING
 from __future__ import annotations
 
-from db.database import Base
-from schemas.common import JoinMode
+from app.db.database import Base
+from app.schemas.common import JoinMode
 from sqlalchemy import Boolean
 from sqlalchemy import Column
 from sqlalchemy import DateTime

@@ -6,8 +6,8 @@ from typing import List
 from typing import Optional
 
 from pydantic import BaseModel
-from schemas.event import Event
-from schemas.participant import Participant
+from app.schemas.event import Event
+from app.schemas.participant import Participant
 
 
 class DietSource(str, Enum):
