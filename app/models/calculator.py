@@ -1,24 +1,31 @@
 # from typing import TYPE_CHECKING
 from __future__ import annotations
+
 from turtle import distance
 
 from db.database import Base
-from schemas.calculator import DietSource, ElectricitySource, LandTransportCategory, LandTransportVechicle, AirTransportSource, AirTransportClass
-from sqlalchemy import DateTime
+from schemas.calculator import AirTransportClass
+from schemas.calculator import AirTransportSource
+from schemas.calculator import DietSource
+from schemas.calculator import ElectricitySource
+from schemas.calculator import LandTransportCategory
+from schemas.calculator import LandTransportVechicle
 from sqlalchemy import Column
+from sqlalchemy import DateTime
 from sqlalchemy import Enum
 from sqlalchemy import Float
 from sqlalchemy import ForeignKey
-from sqlalchemy import Integer, String
-from sqlalchemy.sql import func
+from sqlalchemy import Integer
+from sqlalchemy import String
 from sqlalchemy.orm import relationship
+from sqlalchemy.sql import func
 
 
 class Calculator(Base):
     __tablename__ = 'calculators'
 
     id = Column(Integer, primary_key=True, index=True)
-    
+
     source_location_lon = Column(Float)
     destination_event_lat = Column(Float)
     source_airport_lon = Column(Float)
@@ -45,7 +52,6 @@ class Calculator(Base):
     source_diet = Column(Enum(DietSource))
     factor_diet = Column(Integer)
     unit_diet = Column(String)
-
 
     source_electricity = Column(Enum(ElectricitySource))
     factor_electricity = Column(Integer)

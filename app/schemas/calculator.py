@@ -1,9 +1,13 @@
+from __future__ import annotations
+
 from datetime import datetime
 from enum import Enum
+from typing import List
+from typing import Optional
+
 from pydantic import BaseModel
-from typing import Optional, List
-from schemas.participant import Participant
 from schemas.event import Event
+from schemas.participant import Participant
 
 
 class DietSource(str, Enum):
@@ -12,6 +16,7 @@ class DietSource(str, Enum):
     vegan = 'vegan'
     vegetarian = 'vegetarian'
     nonvegan = 'nonvegan'
+
 
 class ElectricitySource(str, Enum):
     """Different electricity options that participants can choose"""
@@ -26,6 +31,7 @@ class LandTransportCategory(str, Enum):
     private = 'private'
     public = 'public'
 
+
 class LandTransportVechicle(str, Enum):
     """Different electricity vechiles options that participants can choose"""
 
@@ -38,6 +44,7 @@ class LandTransportVechicle(str, Enum):
     walk = 'walk'
     electric_car = 'electric_car'
 
+
 class AirTransportSource(str, Enum):
     """Different electricity sources options that participants can choose"""
 
@@ -45,14 +52,15 @@ class AirTransportSource(str, Enum):
     short_haul_international = 'short_haul_international'
     long_haul_international = 'long_haul_international'
 
+
 class AirTransportClass(str, Enum):
     """Different electricity classes options that participants can choose"""
 
     average = 'average'
     economy = 'economy'
     business = 'business'
-    premium_economy = "premium_economy"
-    first = "first"
+    premium_economy = 'premium_economy'
+    first = 'first'
 
 
 class CalculatorBase(BaseModel):
@@ -86,7 +94,7 @@ class CalculatorBase(BaseModel):
     source_electricity: Optional[ElectricitySource] = None
     factor_electricity: Optional[int] = None
     unit_electricity: Optional[str] = None
-    
+
     event_id: List[Event] = []
     participant_id: List[Participant] = []
 
@@ -126,8 +134,10 @@ class CalculatorCreate(CalculatorBase):
     event_id: List[Event] = []
     participant_id: List[Participant] = []
 
+
 class CalculatorUpdate(CalculatorBase):
     pass
+
 
 class CalculatorInDBBase(CalculatorBase):
     id: int
