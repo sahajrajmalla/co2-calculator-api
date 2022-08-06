@@ -5,10 +5,12 @@ from db.database import Base
 from schemas.common import JoinMode
 from sqlalchemy import Boolean
 from sqlalchemy import Column
+from sqlalchemy import DateTime
 from sqlalchemy import Enum
 from sqlalchemy import Float
 from sqlalchemy import ForeignKey
 from sqlalchemy import Integer
+from sqlalchemy.sql import func
 
 # if TYPE_CHECKING:
 #     from .event import Event  # noqa
@@ -22,4 +24,8 @@ class Participant(Base):
     lon = Column(Float)
     lat = Column(Float)
     active = Column(Boolean)
+
+    calculator_id = Column(Integer, ForeignKey('calculators.id'))
     event_id = Column(Integer, ForeignKey('events.id'))
+    created_at = Column(DateTime, server_default=func.now())
+    modified_at = Column(DateTime, server_default=func.now(), onupdate=func.now())

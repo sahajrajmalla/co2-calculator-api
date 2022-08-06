@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from schemas.calculator import Calculator
+from schemas.calculator import CalculatorCreate
+from schemas.calculator import CalculatorInDB
+from schemas.calculator import CalculatorUpdate
 from schemas.event import Event
 from schemas.event import EventCreate
 from schemas.event import EventInDB
