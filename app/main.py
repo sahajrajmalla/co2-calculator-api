@@ -1,11 +1,12 @@
 from __future__ import annotations
 
+from fastapi import FastAPI
+
 from app.api.v1.api import api_router
 from app.core.routers import auth
 from app.core.routers import root
 from app.core.routers import user
 from app.db.database import engine
-from fastapi import FastAPI
 from app.models import CalculatorBase
 from app.models import EventBase
 from app.models import ParticipantBase

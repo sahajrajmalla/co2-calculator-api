@@ -4,6 +4,7 @@ from typing import List
 from typing import Optional
 
 from pydantic import BaseModel
+
 from app.schemas.participant import Participant
 from app.schemas.participant import ParticipantInDB
 

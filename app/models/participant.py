@@ -1,8 +1,6 @@
 # from typing import TYPE_CHECKING
 from __future__ import annotations
 
-from app.db.database import Base
-from app.schemas.common import JoinMode
 from sqlalchemy import Boolean
 from sqlalchemy import Column
 from sqlalchemy import DateTime
@@ -11,6 +9,9 @@ from sqlalchemy import Float
 from sqlalchemy import ForeignKey
 from sqlalchemy import Integer
 from sqlalchemy.sql import func
+
+from app.db.database import Base
+from app.schemas.common import JoinMode
 
 # if TYPE_CHECKING:
 #     from .event import Event  # noqa

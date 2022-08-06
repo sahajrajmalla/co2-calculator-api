@@ -1,11 +1,12 @@
 from __future__ import annotations
 
+from fastapi import APIRouter
+from fastapi import Depends
+
 from app.core.auth.jwt_token import get_current_user
 from app.core.repositories.distance import get_top_cloest_airport
 from app.core.repositories.distance import measure_geodesic_distance
 from app.core.repositories.factor import fetch_factor_data
-from fastapi import APIRouter
-from fastapi import Depends
 from app.models.user import User
 
 router = APIRouter(prefix='', tags=['Root'])

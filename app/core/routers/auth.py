@@ -1,15 +1,16 @@
 from __future__ import annotations
 
-from app.core.auth.hashing import Hash
-from app.core.auth.jwt_token import create_access_token
-from app.db.database import get_db
 from fastapi import APIRouter
 from fastapi import Depends
 from fastapi import HTTPException
 from fastapi import status
 from fastapi.security import OAuth2PasswordRequestForm
-from app.models.user import User
 from sqlalchemy.orm import Session
+
+from app.core.auth.hashing import Hash
+from app.core.auth.jwt_token import create_access_token
+from app.db.database import get_db
+from app.models.user import User
 
 router = APIRouter(prefix='/login', tags=['Authentication'])
 

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from app.db.database import Base
 from sqlalchemy import Column
 from sqlalchemy import DateTime
 from sqlalchemy import Float
@@ -9,6 +8,8 @@ from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
+
+from app.db.database import Base
 # from sqlalchemy import ForeignKey
 
 

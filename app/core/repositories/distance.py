@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import pandas as pd
 from geopy.distance import geodesic
+
 from app.utils.measure_distance import haversine_np
 
 airport = pd.read_csv('data/airport_coordinates.csv')
