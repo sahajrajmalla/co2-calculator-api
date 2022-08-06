@@ -24,6 +24,7 @@ class Participant(Base):
 
     calculator_id = Column(Integer)
     event_id = Column(Integer)
+    user_id = Column(Integer)
     # one-to-many collection
     # calculator_id = relationship("Calculator", back_populates="participants")
 

@@ -15,6 +15,7 @@ class ParticipantBase(BaseModel):
     active: Optional[bool] = None
     event_id: Optional[int] = None
     calculator_id: Optional[int] = None
+    user_id: Optional[int] = None
 
 # Properties to receive on participant creation
 
@@ -26,6 +27,7 @@ class ParticipantCreate(ParticipantBase):
     active: bool = True
     event_id: int
     calculator_id: int
+    user_id: int
 
 
 # Properties to receive on update
@@ -42,6 +44,7 @@ class ParticipantInDBBase(ParticipantBase):
     active: bool
     event_id: int
     calculator_id: int
+    user_id: int
 
     class Config:
         orm_mode = True

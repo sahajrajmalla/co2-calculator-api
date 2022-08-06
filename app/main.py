@@ -11,10 +11,21 @@ from app.models import CalculatorBase
 from app.models import EventBase
 from app.models import ParticipantBase
 from app.models import UserBase
-# from starlette.middleware.cors import CORSMiddleware
+from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 UserBase.metadata.create_all(engine)
 EventBase.metadata.create_all(engine)
