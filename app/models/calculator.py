@@ -1,8 +1,6 @@
 # from typing import TYPE_CHECKING
 from __future__ import annotations
 
-from turtle import distance
-
 from db.database import Base
 from schemas.calculator import AirTransportClass
 from schemas.calculator import AirTransportSource
@@ -14,7 +12,6 @@ from sqlalchemy import Column
 from sqlalchemy import DateTime
 from sqlalchemy import Enum
 from sqlalchemy import Float
-from sqlalchemy import ForeignKey
 from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy.orm import relationship
