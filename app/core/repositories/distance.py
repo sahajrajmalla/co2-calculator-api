@@ -8,7 +8,7 @@ from app.utils.measure_distance import haversine_np
 airport = pd.read_csv('data/airport_coordinates.csv')
 
 
-def get_top_cloest_airport(ref_lat, ref_lon, top_n: int = 1000):
+def get_top_cloest_airport(ref_lat, ref_lon, top_n: int = 1):
     dist_list = []
 
     for index, lat, lon in zip(airport['index'], airport['lat'], airport['lon']):

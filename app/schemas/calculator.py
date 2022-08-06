@@ -40,6 +40,7 @@ class LandTransportVechicle(str, Enum):
     bike = 'bike'
     walk = 'walk'
     electric_car = 'electric_car'
+    flight = 'flight'
 
 
 class AirTransportSource(str, Enum):
