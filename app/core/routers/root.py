@@ -16,10 +16,10 @@ from app.db.database import get_db
 from app.models.calculator import Calculator
 from app.models.event import Event
 from app.models.participant import Participant
-from app.schemas import ParticipantInDB
 from app.models.user import User
 from app.schemas import CalculatorInDB
 from app.schemas import EventInDB
+from app.schemas import ParticipantInDB
 
 router = APIRouter(prefix='', tags=['Root'])
 
@@ -63,10 +63,12 @@ def filter_calculator_by_event_id(event_id: int, db: Session = Depends(get_db)):
     item = db.query(Calculator).filter(Calculator.event_id == event_id).all()
     return item
 
+
 @router.get('/fetch_participants', response_model=List[ParticipantInDB], status_code=status.HTTP_200_OK)
 def filter_participants_by_event_id(user_id: int, db: Session = Depends(get_db)):
     item = db.query(Participant).filter(Participant.user_id == user_id).all()
     return item
+
 
 @router.get('/fetch_lat_lng', response_model=dict, status_code=status.HTTP_200_OK)
 def fetch_lat_lng(address: str):

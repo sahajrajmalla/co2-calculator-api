@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
 
 from app.api.v1.api import api_router
 from app.core.routers import auth
@@ -11,20 +12,19 @@ from app.models import CalculatorBase
 from app.models import EventBase
 from app.models import ParticipantBase
 from app.models import UserBase
-from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",
+    'http://localhost:3000',
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=['*'],
+    allow_headers=['*'],
 )
 
 UserBase.metadata.create_all(engine)
