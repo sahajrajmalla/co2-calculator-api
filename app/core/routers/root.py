@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from core.auth.jwt_token import get_current_user
 from core.repositories.distance import get_top_cloest_airport
+from core.repositories.distance import measure_geodesic_distance
 from core.repositories.factor import fetch_factor_data
 from fastapi import APIRouter
 from fastapi import Depends
@@ -29,4 +30,10 @@ def get_factor_data():
 @router.get('/get_nearest_airport', response_model=list)
 def get_nearest_airport(lat: float, lon: float):
     response_data = get_top_cloest_airport(lat, lon)
+    return response_data
+
+
+@router.get('/get_geodesic_distance', response_model=int)
+def get_geodesic_distance(lat1: float, lon1: float, lat2: float, lon2: float):
+    response_data = measure_geodesic_distance(lat1, lon1, lat2, lon2)
     return response_data

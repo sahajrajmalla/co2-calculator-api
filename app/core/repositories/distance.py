@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import pandas as pd
+from geopy.distance import geodesic
 from utils.measure_distance import haversine_np
 
 airport = pd.read_csv('data/airport_coordinates.csv')
@@ -24,3 +25,9 @@ def get_top_cloest_airport(ref_lat, ref_lon, top_n: int = 1000):
         )
     ].to_dict(orient='records')
     return response_data
+
+
+def measure_geodesic_distance(lat1, lon1, lat2, lon2):
+    first_coor = (lat1, lon1)
+    second_coor = (lat2, lon2)
+    return geodesic(first_coor, second_coor).km
