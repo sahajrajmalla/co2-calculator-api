@@ -5,12 +5,12 @@ from typing import List
 
 from fastapi import APIRouter
 from fastapi import Depends
+from geopy.geocoders import Nominatim
 from sqlalchemy.orm import Session
 
 from app import crud
 from app import schemas
 from app.db.database import get_db
-from geopy.geocoders import Nominatim
 
 router = APIRouter()
 
@@ -50,7 +50,7 @@ def create_event(
         geocode = geolocator.geocode(event_in.address)
         event_in.lat = geocode.latitude
         event_in.lon = geocode.longitude
-    except Exception as e:
+    except Exception:
         pass
     result = crud.event.create(db=db, obj_in=event_in)
     return result
