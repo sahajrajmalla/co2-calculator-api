@@ -17,6 +17,9 @@ app = FastAPI()
 
 origins = [
     'http://localhost:3000',
+    'entropyrangers.netlify.app',
+    'https://entropyrangers.netlify.app',
+    '*'
 ]
 
 app.add_middleware(
