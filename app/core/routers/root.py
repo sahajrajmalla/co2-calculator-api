@@ -3,6 +3,7 @@ from __future__ import annotations
 import random
 import shutil
 from datetime import datetime
+from typing import Any
 from typing import List
 
 from fastapi import APIRouter
@@ -13,6 +14,7 @@ from fastapi import UploadFile
 from geopy.geocoders import Nominatim
 from sqlalchemy.orm import Session
 
+from app import schemas
 from app.core.auth.jwt_token import get_current_user
 from app.core.repositories.distance import get_top_cloest_airport
 from app.core.repositories.distance import measure_geodesic_distance
@@ -114,3 +116,25 @@ def search_items(query: str, db: Session = Depends(get_db)):
     ).all()
     random.shuffle(items)
     return items
+
+
+@router.get('/get_event_stats', response_model=List[schemas.CalculatorInDB], status_code=status.HTTP_200_OK)
+def get_event_stats(event_id: int, db: Session = Depends(get_db)):
+    items = db.query(Calculator).filter(Calculator.event_id == event_id).all()
+    # if participant:
+    #     calculator = db.query(Calculator).filter(Calculator.participants_id == participant.id).first()
+    return items
+
+
+@router.get('/get_personal_event_stats', response_model=Any, status_code=status.HTTP_200_OK)
+def get_personal_event_stats(user_id: int, event_id: int, db: Session = Depends(get_db)):
+    items = db.query(Participant).filter((Participant.user_id == user_id)
+                                         & (Participant.event_id == event_id)).first()
+    if items:
+        calculator = db.query(Calculator).filter(
+            Calculator.participants_id == items.id,
+        ).first()
+        return calculator
+    # if participant:
+    #     calculator = db.query(Calculator).filter(Calculator.participants_id == participant.id).first()
+    return {'error': 'No participant found'}
