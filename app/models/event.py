@@ -25,7 +25,8 @@ class Event(Base):
     lat = Column(Float)
     lon = Column(Float)
 
-    date = Column(String)
+    event_date = Column(String)
+    event_time = Column(String)
 
     thumbnail = Column(URLType)
 

@@ -17,7 +17,8 @@ class EventBase(BaseModel):
     join_mode: Optional[JoinMode] = None
     lat: Optional[float] = None
     lon: Optional[float] = None
-    date: Optional[str] = None
+    event_date: Optional[str] = None
+    event_time: Optional[str] = None
     thumbnail: Optional[str] = None
     user_id: Optional[int] = None
     # participants: List[Participant] = []
@@ -32,7 +33,8 @@ class EventCreate(EventBase):
     join_mode: JoinMode
     lat: float
     lon: float
-    date: str
+    event_date: str
+    event_time: str
     thumbnail: str
     user_id: int
     # participants: List[Participant] = []
@@ -56,7 +58,8 @@ class EventInDBBase(EventBase):
     join_mode: JoinMode
     lat: float
     lon: float
-    date: str
+    event_date: str
+    event_time: str
     thumbnail: str
     user_id: int
     # participants: List[ParticipantInDB] = []
