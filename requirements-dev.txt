@@ -1,0 +1,9 @@
+fastapi
+geopy
+pandas
+passlib
+python-jose
+python-multipart
+sqlalchemy
+
+pre-commit

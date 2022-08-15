@@ -14,7 +14,7 @@ Open your terminal and apply these commands.
 cd co2-calculator-api
 python3 -m venv venv
 source venv/bin/activate
-pip3 install -r requirements.txt
+pip3 install -r requirements-dev.txt
 uvicron app.main:app --reload
 ```
 

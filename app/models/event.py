@@ -7,7 +7,6 @@ from sqlalchemy import Float
 from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy.sql import func
-from sqlalchemy_utils import URLType
 
 from app.db.database import Base
 from app.schemas.common import JoinMode
@@ -28,7 +27,7 @@ class Event(Base):
     event_date = Column(String)
     event_time = Column(String)
 
-    thumbnail = Column(URLType)
+    thumbnail = Column(String)
 
     user_id = Column(Integer)
     # participants = Column(Integer)

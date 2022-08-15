@@ -1,0 +1,1 @@
+{"id":"a4ce9460-9c77-4fda-9d7d-a6658be3530b","space":23416,"runtime":"python3.9","name":"co2-calculator-api","path":"yrghp0","project":"c065njw4","account":"144798365827","region":"ap-southeast-1","deps":["fastapi","passlib","pandas","python-multipart","python-jose","geopy","sqlalchemy"],"envs":null,"public":true,"log_level":"debug","cron":""}
