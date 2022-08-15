@@ -2,8 +2,8 @@ fastapi
 geopy
 pandas
 passlib
+
+pre-commit
 python-jose
 python-multipart
 sqlalchemy
-
-pre-commit
