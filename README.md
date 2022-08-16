@@ -15,7 +15,7 @@ cd co2-calculator-api
 python3 -m venv venv
 source venv/bin/activate
 pip3 install -r requirements-dev.txt
-uvicron app.main:app --reload
+uvicron main:app --reload
 ```
 
 This will initialize and run your FastAPI application in localhost on port 8000.
