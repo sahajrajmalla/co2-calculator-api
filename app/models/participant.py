@@ -11,13 +11,14 @@ from sqlalchemy import String
 from sqlalchemy.sql import func
 
 from app.db.database import Base
-from app.schemas.calculator import AirTransportClass
-from app.schemas.calculator import AirTransportSource
-from app.schemas.calculator import DietSource
-from app.schemas.calculator import ElectricitySource
-from app.schemas.calculator import LandTransportCategory
-from app.schemas.calculator import LandTransportVechicle
 from app.schemas.common import JoinMode
+from app.schemas.participant import AirTransportClass
+from app.schemas.participant import AirTransportSource
+from app.schemas.participant import DietSource
+from app.schemas.participant import ElectricitySource
+from app.schemas.participant import LandTransportCategory
+from app.schemas.participant import LandTransportVechicle
+# from typing import TYPE_CHECKING
 # from typing import TYPE_CHECKING
 
 
