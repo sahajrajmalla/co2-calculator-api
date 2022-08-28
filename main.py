@@ -8,7 +8,6 @@ from app.core.routers import auth
 from app.core.routers import root
 from app.core.routers import user
 from app.db.database import engine
-from app.models import CalculatorBase
 from app.models import EventBase
 from app.models import ParticipantBase
 from app.models import UserBase
@@ -33,7 +32,6 @@ app.add_middleware(
 UserBase.metadata.create_all(engine)
 EventBase.metadata.create_all(engine)
 ParticipantBase.metadata.create_all(engine)
-CalculatorBase.metadata.create_all(engine)
 
 app.include_router(root.router)
 app.include_router(user.router)

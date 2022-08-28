@@ -3,7 +3,6 @@ from __future__ import annotations
 
 from fastapi import APIRouter
 
-from app.api.v1.endpoints import calculators
 from app.api.v1.endpoints import events
 from app.api.v1.endpoints import participants
 
@@ -21,10 +20,4 @@ api_router.include_router(
     participants.router,
     prefix='/participants',
     tags=['Participants'],
-)
-
-api_router.include_router(
-    calculators.router,
-    prefix='/calculators',
-    tags=['Calculators'],
 )

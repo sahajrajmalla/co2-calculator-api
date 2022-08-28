@@ -20,7 +20,6 @@ from app.core.repositories.distance import get_top_cloest_airport
 from app.core.repositories.distance import measure_geodesic_distance
 from app.core.repositories.factor import fetch_factor_data
 from app.db.database import get_db
-from app.models.calculator import Calculator
 from app.models.event import Event
 from app.models.participant import Participant
 from app.models.user import User
@@ -64,11 +63,6 @@ def filter_event_by_user_id(user_id: int, db: Session = Depends(get_db)):
     item = db.query(Event).filter(Event.user_id == user_id).all()
     return item
 
-
-@router.get('/fetch_calculator', response_model=List[CalculatorInDB], status_code=status.HTTP_200_OK)
-def filter_calculator_by_event_id(event_id: int, db: Session = Depends(get_db)):
-    item = db.query(Calculator).filter(Calculator.event_id == event_id).all()
-    return item
 
 
 @router.get('/fetch_participants', response_model=List[ParticipantInDB], status_code=status.HTTP_200_OK)
@@ -117,24 +111,3 @@ def search_items(query: str, db: Session = Depends(get_db)):
     random.shuffle(items)
     return items
 
-
-@router.get('/get_event_stats', response_model=List[schemas.CalculatorInDB], status_code=status.HTTP_200_OK)
-def get_event_stats(event_id: int, db: Session = Depends(get_db)):
-    items = db.query(Calculator).filter(Calculator.event_id == event_id).all()
-    # if participant:
-    #     calculator = db.query(Calculator).filter(Calculator.participants_id == participant.id).first()
-    return items
-
-
-@router.get('/get_personal_event_stats', response_model=Any, status_code=status.HTTP_200_OK)
-def get_personal_event_stats(user_id: int, event_id: int, db: Session = Depends(get_db)):
-    items = db.query(Participant).filter((Participant.user_id == user_id)
-                                         & (Participant.event_id == event_id)).first()
-    if items:
-        calculator = db.query(Calculator).filter(
-            Calculator.participants_id == items.id,
-        ).first()
-        return calculator
-    # if participant:
-    #     calculator = db.query(Calculator).filter(Calculator.participants_id == participant.id).first()
-    return {'error': 'No participant found'}
