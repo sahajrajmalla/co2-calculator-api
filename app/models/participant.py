@@ -7,17 +7,6 @@ from sqlalchemy import DateTime
 from sqlalchemy import Enum
 from sqlalchemy import Float
 from sqlalchemy import Integer
-from sqlalchemy.sql import func
-
-from app.db.database import Base
-from app.schemas.common import JoinMode
-# from typing import TYPE_CHECKING
-
-from sqlalchemy import Column
-from sqlalchemy import DateTime
-from sqlalchemy import Enum
-from sqlalchemy import Float
-from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy.sql import func
 
@@ -28,6 +17,8 @@ from app.schemas.calculator import DietSource
 from app.schemas.calculator import ElectricitySource
 from app.schemas.calculator import LandTransportCategory
 from app.schemas.calculator import LandTransportVechicle
+from app.schemas.common import JoinMode
+# from typing import TYPE_CHECKING
 
 
 class Participant(Base):

@@ -1,12 +1,12 @@
 from __future__ import annotations
 
+from datetime import datetime
+from enum import Enum
 from typing import Optional
 
 from pydantic import BaseModel
 
 from app.schemas.common import JoinMode
-from enum import Enum
-from datetime import datetime
 
 
 class DietSource(str, Enum):
@@ -63,6 +63,8 @@ class AirTransportClass(str, Enum):
     first = 'first'
 
 # Shared properties
+
+
 class ParticipantBase(BaseModel):
     join_mode: Optional[JoinMode] = None
     lon: Optional[float] = None
@@ -101,8 +103,6 @@ class ParticipantBase(BaseModel):
     source_electricity: Optional[ElectricitySource] = None
     factor_electricity: Optional[int] = None
     unit_electricity: Optional[str] = None
-
-    event_id: Optional[int] = None
 
 
 # Properties to receive on participant creation
@@ -147,8 +147,6 @@ class ParticipantCreate(ParticipantBase):
     source_electricity: ElectricitySource
     factor_electricity: int
     unit_electricity: str
-
-    event_id: int
 
 
 # Properties to receive on update
@@ -197,8 +195,6 @@ class ParticipantInDBBase(ParticipantBase):
     source_electricity: ElectricitySource
     factor_electricity: int
     unit_electricity: str
-
-    event_id: int
 
     created_at: datetime
     modified_at: datetime

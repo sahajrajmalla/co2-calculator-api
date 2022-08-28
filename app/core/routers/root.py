@@ -3,7 +3,6 @@ from __future__ import annotations
 import random
 import shutil
 from datetime import datetime
-from typing import Any
 from typing import List
 
 from fastapi import APIRouter
@@ -14,7 +13,6 @@ from fastapi import UploadFile
 from geopy.geocoders import Nominatim
 from sqlalchemy.orm import Session
 
-from app import schemas
 from app.core.auth.jwt_token import get_current_user
 from app.core.repositories.distance import get_top_cloest_airport
 from app.core.repositories.distance import measure_geodesic_distance
@@ -23,7 +21,6 @@ from app.db.database import get_db
 from app.models.event import Event
 from app.models.participant import Participant
 from app.models.user import User
-from app.schemas import CalculatorInDB
 from app.schemas import EventInDB
 from app.schemas import ParticipantInDB
 
@@ -62,7 +59,6 @@ def get_geodesic_distance(lat1: float, lon1: float, lat2: float, lon2: float):
 def filter_event_by_user_id(user_id: int, db: Session = Depends(get_db)):
     item = db.query(Event).filter(Event.user_id == user_id).all()
     return item
-
 
 
 @router.get('/fetch_participants', response_model=List[ParticipantInDB], status_code=status.HTTP_200_OK)
@@ -110,4 +106,3 @@ def search_items(query: str, db: Session = Depends(get_db)):
     ).all()
     random.shuffle(items)
     return items
-
